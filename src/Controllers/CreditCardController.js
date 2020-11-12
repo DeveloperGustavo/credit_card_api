@@ -1,4 +1,5 @@
 const CreditCard    = require("../Models/CreditCard");
+const ViaCep        = require("../Models/ViaCepRequest");
 
 exports.index = (req, res) => {
     CreditCard.find({}).then((credit_card) => {
@@ -71,4 +72,11 @@ exports.delete = (req, res) => {
             msg: "Cartão deletado com sucesso."
         });
     });
+}
+
+exports.teste = (req, res) => {
+    const cep = new ViaCep();
+    var consulta = cep.consultaCep(req.params.cep);
+    console.log(consulta.body);
+    return res.status(200).json(consulta);
 }

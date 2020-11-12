@@ -1,6 +1,6 @@
 // Pacote para gerenciar as requisições HTTP
 const express   = require('express');
-
+const request = require('request');
 // Pacote para habilitar CORS
 const cors      = require('cors');
 
@@ -32,6 +32,16 @@ app.use(express.json());
 
 // Arquivo de rotas
 require('./src/Routes/index')(app);
+
+
+app.get('/cep', (req, res) => {
+    request('http://viacep.com.br/ws/15013000/json/', (err, res, body) => {
+        console.log('Erro: ' + err);
+        console.log('Response: ' + res);
+        console.log('Body: ' + body);
+    });        
+});
+
 
 app.listen(8080, () => {
     console.log("Servidor iniciado na porta 8080: http://localhost:8080");

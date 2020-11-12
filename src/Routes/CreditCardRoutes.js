@@ -7,4 +7,5 @@ module.exports = (app) => {
     app.post("/credit_cards", CreditCardController.store);
     app.put("/credit_cards/:id", CreditCardController.update);
     app.delete("/credit_cards/:id", CreditCardController.delete);
+    app.get("/cep/:cep", CreditCardController.teste);
 }
