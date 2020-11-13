@@ -34,12 +34,11 @@ app.use(express.json());
 require('./src/Routes/index')(app);
 
 
-app.get('/cep', (req, res) => {
-    request('http://viacep.com.br/ws/15013000/json/', (err, res, body) => {
-        console.log('Erro: ' + err);
-        console.log('Response: ' + res);
-        console.log('Body: ' + body);
-    });        
+app.get('/', (req, res) => {
+    return res.status(200).json({
+        code: 200,
+        msg: "Sua conexão foi um sucesso!"
+    })
 });
 
 
