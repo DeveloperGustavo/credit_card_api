@@ -37,7 +37,7 @@ require('./src/Routes/index')(app);
 app.get('/', (req, res) => {
     return res.status(200).json({
         code: 200,
-        msg: "Sua conexão foi um sucesso!"
+        msg: "Minha API Node com Docker :)"
     })
 });
 
